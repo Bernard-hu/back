@@ -1,6 +1,7 @@
 package com.epam.ecobites.aspect;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.logging.log4j.LogManager;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 public class LogAspect {
+
+    private static final org.apache.logging.log4j.Logger log
+            = org.apache.logging.log4j.LogManager.getLogger(LogAspect.class);
 
     @Pointcut("within(com.epam.ecobites.controller..*)")
     public void pointcut() {}
